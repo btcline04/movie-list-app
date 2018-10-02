@@ -1,2 +1,14 @@
 
 @import 'bootstrap';
+
+.btn-space {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+#button-group {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
