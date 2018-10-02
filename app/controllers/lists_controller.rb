@@ -29,6 +29,8 @@ class ListsController < ApplicationController
   end
 
   def destroy
+    @list.destroy
+    redirect_to root_path
   end
 
   private

@@ -1,1 +1,2 @@
 <%= @list.name %>
+<%= button_to "Delete List", list_path, method: 'delete', class: 'btn btn-danger btn-sm btn-space', data: { confirm: "Are you sure?" } %>
