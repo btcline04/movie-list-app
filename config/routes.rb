@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  resources :lists
+  get 'movies/new'
+  resources :lists, :movies
   root 'lists#index'
 end
