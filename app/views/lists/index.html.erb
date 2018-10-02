@@ -1,2 +1,10 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<div class="card-deck">
+  <% @lists.each do |l|%>
+    <div class="card">
+      <img src="https://lajoyalink.com/wp-content/uploads/2018/03/Movie.jpg" alt="filler image" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title"><%= l.name %></h5>
+        </div>
+    </div>
+  <% end %>
+</div> 
