@@ -3,7 +3,9 @@
     <div class="card">
       <img src="https://lajoyalink.com/wp-content/uploads/2018/03/Movie.jpg" alt="filler image" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title"><%= l.name %></h5>
+          <%= link_to l do %>
+            <h5 class="card-title"><%= l.name %></h5>
+          <% end %>
         </div>
     </div>
   <% end %>
