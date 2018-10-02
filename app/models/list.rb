@@ -1,3 +1,6 @@
 class List < ApplicationRecord
-  has_many :movies
+  validates :name, presence: true
+
+  has_many :lists_movies
+  has_many :movies, through: :lists_movies
 end
