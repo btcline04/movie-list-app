@@ -2,10 +2,12 @@
   <% @lists.each do |l|%>
     <div class="card">
       <img src="https://lajoyalink.com/wp-content/uploads/2018/03/Movie.jpg" alt="filler image" class="card-img-top">
-        <div class="card-body">
+        <div class="card-body text-center">
           <%= link_to l do %>
             <h5 class="card-title"><%= l.name %></h5>
           <% end %>
+          <p>Movies in list: <%= l.movies.count %></p>
+          <p>Average Rating: <%= l.average_rating %></p>
         </div>
     </div>
   <% end %>
