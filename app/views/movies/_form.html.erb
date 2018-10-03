@@ -1,0 +1,7 @@
+<form>
+  <%= simple_form_for @movie do |f| %>
+    <div class="form-group">
+      <%= f.input :title, placeholder: "Movie Title", input_html: { class: 'form-control' } %>
+    </div>
+  <% end %>
+</form>
