@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_03_005945) do
+ActiveRecord::Schema.define(version: 2018_10_03_024456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,8 +24,6 @@ ActiveRecord::Schema.define(version: 2018_10_03_005945) do
   create_table "lists_movies", id: false, force: :cascade do |t|
     t.bigint "list_id", null: false
     t.bigint "movie_id", null: false
-    t.index ["list_id", "movie_id"], name: "index_lists_movies_on_list_id_and_movie_id"
-    t.index ["movie_id", "list_id"], name: "index_lists_movies_on_movie_id_and_list_id"
   end
 
   create_table "movies", force: :cascade do |t|
