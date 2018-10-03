@@ -1,7 +1,49 @@
-<form>
+
   <%= simple_form_for @movie do |f| %>
+
     <div class="form-group">
       <%= f.input :title, placeholder: "Movie Title", input_html: { class: 'form-control' } %>
     </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+         <%= f.input :year, as: :date, 
+            start_year: Date.today.year,
+            end_year: Date.today.year - 100, 
+            discard_day: true, order: [:year], 
+            input_html: { class: 'form-control' } %>
+      </div>
+
+      <div class="form-group col-md-6">
+         <%= f.input :genre, placeholder: "Genre", input_html: { class: 'form-control' } %>
+      </div>
+    </div>
+
+    <div class="form-group">
+       <%= f.input :poster, placeholder: "Poster URL", input_html: { class: 'form-control' } %>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+         <%= f.input :director, placeholder: "Director",
+            input_html: { class: 'form-control' } %>
+      </div>
+
+      <div class="form-group col-md-6">
+         <%= f.input :rating, collection: 1..5, prompt: "1(bad) - 5(great)", input_html: { class: 'form-control' } %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.association :lists, as: :radio_buttons, input_html: { class: 'form-control' } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :plot, as: :text, placeholder: "Plot Summary", input_html: { class: 'form-control' } %>
+    </div>
+
+    <div class="form-group text-center">
+      <%= f.button :submit, "Add Movie", class: "btn btn-primary col-md-4" %> 
+    </div>
+
   <% end %>
-</form>
