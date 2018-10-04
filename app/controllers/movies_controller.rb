@@ -10,13 +10,27 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-    binding.pry
     if @movie.save
       redirect_to movie_path(@movie)
     else
       flash[:danger] = "Please try again!"
       redirect_to new_movie_path
     end
+  end
+
+  def show
+
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+    @movie.destroy
+    render :show
   end
 
   private
@@ -26,6 +40,6 @@ class MoviesController < ApplicationController
   end
 
   def movie_params
-    params.require(:movie).permit(:title, :year, :genre, :poster, :director, :plot, :rating, :list_ids)
+    params.require(:movie).permit(:title, :year, :genre, :poster, :director, :plot, :rating, :list_ids => [])
   end
 end

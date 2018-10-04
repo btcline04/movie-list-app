@@ -7,7 +7,7 @@
 
     <div class="form-row">
       <div class="form-group col-md-6">
-         <%= f.input :year, as: :date, 
+        <%= f.input :year, as: :date,
             start_year: Date.today.year,
             end_year: Date.today.year - 100, 
             discard_day: true, order: [:year], 
@@ -35,7 +35,7 @@
     </div>
 
     <div class="form-group">
-      <%= f.association :lists, as: :radio_buttons, input_html: { class: 'form-control' } %>
+      <%= f.association :lists, as: :check_boxes, multiple: true, input_html: { class: 'form-control' } %>
     </div>
 
     <div class="form-group">

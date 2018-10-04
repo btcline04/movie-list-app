@@ -1,2 +1,31 @@
-<%= @list.name %>
-<%= button_to "Delete List", list_path, method: 'delete', class: 'btn btn-danger btn-sm btn-space', data: { confirm: "Are you sure?" } %>
+<div class="container-fluid text-center">
+  <h2><strong><%= @list.name %></strong></h2>
+</div>
+
+<div class="card-deck text-center">
+  <% @list.movies.each do |m| %>
+      <div class="card">
+        <img src="<%= m.poster %>" alt="No poster found." class="card-img-top">
+
+        <div class="card-body">
+          <h5 class="card-title"><%= m.title %></h5>
+          <p class="card-text"><%= m.year %></p>
+          <p class="card-text"><%= m.genre %></p>
+          <p class="card-text"><%= m.director %></p>
+          <p class="card-text"><%= m.plot %></p>
+        </div>
+
+        <div class="card-footer">
+         Rating: <% m.rating.to_i.times do %>
+            <span><%= fa_icon "star" %></span>
+          <% end %>
+        </div>
+      </div>
+
+  <% end %>
+</div>
+
+
+<div class="text-center">
+  <%= button_to "Delete List", list_path, method: 'delete', class: 'btn btn-danger col-md-4 ', data: { confirm: "Are you sure?" } %>
+</div>
