@@ -10,7 +10,7 @@
         <%= f.input :year, as: :date,
             start_year: Date.today.year,
             end_year: Date.today.year - 100, 
-            discard_day: true, order: [:year], 
+            discard_day: true, discard_month: true, order: [:year], 
             input_html: { class: 'form-control' } %>
       </div>
 

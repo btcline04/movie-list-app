@@ -26,10 +26,11 @@ class MoviesController < ApplicationController
   end
 
   def update
+    @movie = Movie.update(movie_params)
+    redirect_to root_path
   end
 
   def destroy
-    binding.pry
     @movie.destroy
     redirect_to root_path
   end

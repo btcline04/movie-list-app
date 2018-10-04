@@ -9,7 +9,6 @@
 
         <div class="card-body">
           <h5 class="card-title"><%= m.title %></h5>
-          <p class="card-text"><%= m.year %></p>
           <p class="card-text"><%= m.genre %></p>
           <p class="card-text"><%= m.director %></p>
           <p class="card-text"><%= m.plot %></p>
@@ -20,7 +19,14 @@
             <span><%= fa_icon "star" %></span>
           <% end %>
 
-          <%= button_to "Delete movie", movie_path(m), method: 'delete', controller: 'movies', class: 'btn btn-danger btn-sm', data: { confirm: "Are you sure?"} %>
+          <div class="btn-top">
+            <span>
+              <%= button_to "Edit movie", edit_movie_path(m), method: 'get', class: 'btn btn-primary btn-sm' %>
+
+              <%= button_to "Delete movie", movie_path(m), method: 'delete', controller: 'movies', class: 'btn btn-danger btn-sm', data: { confirm: "Are you sure?"} %>
+            </span>
+          </div>
+
         </div>
       </div>
 

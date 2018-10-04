@@ -12,7 +12,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to list_path(@list)
+      redirect_to root_path
     else
       flash[:danger] = "Please try again."
       redirect_to new_list_path
