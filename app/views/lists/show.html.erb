@@ -19,6 +19,8 @@
          Rating: <% m.rating.to_i.times do %>
             <span><%= fa_icon "star" %></span>
           <% end %>
+
+          <%= button_to "Delete movie", movie_path(m), method: 'delete', controller: 'movies', class: 'btn btn-danger btn-sm', data: { confirm: "Are you sure?"} %>
         </div>
       </div>
 

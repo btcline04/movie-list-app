@@ -29,8 +29,9 @@ class MoviesController < ApplicationController
   end
 
   def destroy
+    binding.pry
     @movie.destroy
-    render :show
+    redirect_to root_path
   end
 
   private
