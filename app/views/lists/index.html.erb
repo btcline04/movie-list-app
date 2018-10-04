@@ -7,7 +7,9 @@
             <h5 class="card-title"><%= l.name %></h5>
           <% end %>
           <p>Movies in list: <%= l.movies.count %></p>
-          <p>Average Rating: <%= l.average_rating %></p>
+          Average Rating: <% l.average_rating.to_i.ceil.times do %>
+          <span><%= fa_icon "star" %></span>
+          <% end %>
         </div>
     </div>
   <% end %>
