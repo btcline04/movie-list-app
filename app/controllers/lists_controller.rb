@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :find_list, only: [:show, :edit, :update, :destroy]
+  before_action :find_list, only: [:show, :edit, :update, :destroy, :list_data]
 
   def index
     @lists = List.all
@@ -31,6 +31,11 @@ class ListsController < ApplicationController
   def destroy
     @list.destroy
     redirect_to root_path
+  end
+
+  def list_data
+    @movies = @list.movies
+    render json: @movies, status: 201
   end
 
   private

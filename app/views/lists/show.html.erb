@@ -2,7 +2,21 @@
   <h2><strong><%= @list.name %></strong></h2>
 </div>
 
-<div class="card-deck text-center">
+<div class="text-center">
+  <h2><strong><% @list.average_rating.to_i.ceil.times do %></strong></h2>
+    <span><%= fa_icon "star" %></span>
+  <% end %>
+</div>
+<div class="container-fluid text-center">
+  <span>
+    <button class="btn btn-sm btn-space btn-secondary" id="sort-titles">Sort By Title</button>
+
+    <button class="btn btn-sm btn-space btn-secondary" id="sort-ratings">Sort By Rating</button>
+  </span>
+</div>
+
+
+<div class="card-deck text-center" id="card-deck">
   <% @list.movies.each do |m| %>
       <div class="card">
         <img src="<%= m.poster %>" alt="No poster found." class="card-img-top">
@@ -10,7 +24,7 @@
         <div class="card-body">
           <h5 class="card-title"><%= m.title %></h5>
           <p class="card-text"><%= m.genre %></p>
-          <p class="card-text"><%= m.director %></p>
+          <p class="card-text">Director: <%= m.director %></p>
           <p class="card-text"><%= m.plot %></p>
         </div>
 
@@ -20,10 +34,10 @@
           <% end %>
 
           <div class="btn-top">
-            <span>
-              <%= button_to "Edit movie", edit_movie_path(m), method: 'get', class: 'btn btn-primary btn-sm' %>
+            <span class="btn-group">
+              <%= button_to "Edit movie", edit_movie_path(m), method: 'get', class: 'btn btn-primary btn-sm btn-space' %>
 
-              <%= button_to "Delete movie", movie_path(m), method: 'delete', controller: 'movies', class: 'btn btn-danger btn-sm', data: { confirm: "Are you sure?"} %>
+              <%= button_to "Delete movie", movie_path(m), method: 'delete', controller: 'movies', class: 'btn btn-danger btn-sm btn-space', data: { confirm: "Are you sure?"} %>
             </span>
           </div>
 
@@ -34,6 +48,14 @@
 </div>
 
 
-<div class="text-center">
+<div class="text-center btn-top">
   <%= button_to "Delete List", list_path, method: 'delete', class: 'btn btn-danger col-md-4 ', data: { confirm: "Are you sure?" } %>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $('#sort-titles').click(function() {
+      $('#card-deck').html('')
+    })
+  })
+</script>
