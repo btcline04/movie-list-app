@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :find_list, only: [:show, :edit, :update, :destroy, :list_data]
+  before_action :find_list, only: [:show, :edit, :update, :destroy]
 
   def index
     @lists = List.all
@@ -20,6 +20,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    @list.movies.order_list(params[:sort_by])
   end
 
   def edit
@@ -33,11 +34,6 @@ class ListsController < ApplicationController
     redirect_to root_path
   end
 
-  def list_data
-    @movies = @list.movies
-    render json: @movies, status: 201
-  end
-
   private
 
   def find_list
@@ -45,7 +41,7 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :sort_by)
   end
 
 end

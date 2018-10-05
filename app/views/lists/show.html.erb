@@ -9,7 +9,7 @@
 </div>
 <div class="container-fluid text-center">
   <span>
-    <button class="btn btn-sm btn-space btn-secondary" id="sort-titles">Sort By Title</button>
+    <%= link_to "Sort By Title", list_path(@list, sort_by: "title"), class: 'btn btn-secondary btn-sm btn-space' %>
 
     <button class="btn btn-sm btn-space btn-secondary" id="sort-ratings">Sort By Rating</button>
   </span>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="card-footer">
-         Rating: <% m.rating.times do %>
+          Rating: <% m.rating.times do %>
             <span><%= fa_icon "star" %></span>
           <% end %>
 
@@ -51,11 +51,3 @@
 <div class="text-center btn-top">
   <%= button_to "Delete List", list_path, method: 'delete', class: 'btn btn-danger col-md-4 ', data: { confirm: "Are you sure?" } %>
 </div>
-
-<script type="text/javascript" charset="utf-8">
-  $(function() {
-    $('#sort-titles').click(function() {
-      $('#card-deck').html('')
-    })
-  })
-</script>
