@@ -12,7 +12,7 @@ class List < ApplicationRecord
     if sort_by == 'title' || sort_by.blank?
       self.movies.order(title: :asc)
     elsif sort_by == 'rating'
-      self.movies.order(rating: :asc)
+      self.movies.order(rating: :desc)
     else
       self.movies.order(created_at: :asc)
     end

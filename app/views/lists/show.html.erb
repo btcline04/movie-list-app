@@ -11,14 +11,14 @@
   <span>
     <%= link_to "Sort By Title", list_path(@list.id, sort_by: 'title'), class: 'btn btn-secondary btn-sm btn-space' %>
 
+    <%= link_to "Sort By Rating", list_path(@list.id, sort_by: 'rating'), class: 'btn btn-secondary btn-sm btn-space' %>
 
-    <button class="btn btn-sm btn-space btn-secondary" id="sort-ratings">Sort By Rating</button>
   </span>
 </div>
 
 
 <div class="card-deck text-center" id="card-deck">
-  <% @list.movies.each do |m| %>
+  <% @movies.each do |m| %>
       <div class="card">
         <img src="<%= m.poster %>" alt="No poster found." class="card-img-top">
 

@@ -20,7 +20,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list.movies.order_list(params[:sort_by])
+    @movies = @list.order_list(params[:sort_by])
   end
 
   def edit
