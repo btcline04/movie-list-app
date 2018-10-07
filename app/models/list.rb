@@ -8,14 +8,14 @@ class List < ApplicationRecord
     self.movies.average(:rating)
   end
 
-  def self.order_list(sort_order)
-    if sort_order == 'title' || sort_order.blank?
-      order(title: :asc)
-    elsif sort_order == 'rating'
-      order(rating: :asc)
+  def order_list(sort_by)
+    if sort_by == 'title' || sort_by.blank?
+      self.movies.order(title: :asc)
+    elsif sort_by == 'rating'
+      self.movies.order(rating: :asc)
     else
-      order(created_at: :asc)
+      self.movies.order(created_at: :asc)
     end
   end
-  
+
 end

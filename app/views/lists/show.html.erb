@@ -9,7 +9,8 @@
 </div>
 <div class="container-fluid text-center">
   <span>
-    <%= link_to "Sort By Title", list_path(@list, sort_by: "title"), class: 'btn btn-secondary btn-sm btn-space' %>
+    <%= link_to "Sort By Title", list_path(@list.id, sort_by: 'title'), class: 'btn btn-secondary btn-sm btn-space' %>
+
 
     <button class="btn btn-sm btn-space btn-secondary" id="sort-ratings">Sort By Rating</button>
   </span>
