@@ -1,1 +1,26 @@
-<%= @movie.title %>
+<div class="card-deck text-center" id="card-deck"> 
+  <div class="card">
+    <img src="<%= @movie.poster %>" alt="No poster found." class="card-img-top">
+
+    <div class="card-body">
+      <h5 class="card-title"><%= @movie.title %></h5>
+      <p class="card-text"><%= @movie.genre %></p>
+      <p class="card-text">Director: <%= @movie.director %></p>
+      <p class="card-text"><%= @movie.plot %></p>
+    </div>
+
+    <div class="card-footer">
+      Rating: <% @movie.rating.times do %>
+        <span><%= fa_icon "star" %></span>
+      <% end %>
+
+      <div class="btn-top">
+        <span class="btn-group">
+          <%= button_to "Edit movie", edit_movie_path(@movie), method: 'get', class: 'btn btn-primary btn-sm btn-space' %>
+
+          <%= button_to "Delete movie", movie_path(@movie), method: 'delete', controller: 'movies', class: 'btn btn-danger btn-sm btn-space', data: { confirm: "Are you sure?" } %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
