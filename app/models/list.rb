@@ -9,7 +9,7 @@ class List < ApplicationRecord
   end
 
   def order_list(sort_by)
-    if sort_by == 'title' || sort_by.blank?
+    if sort_by == 'title'
       self.movies.order(title: :asc)
     elsif sort_by == 'rating'
       self.movies.order(rating: :desc)
