@@ -10,9 +10,12 @@ class SearchesController < ApplicationController
       req.params['apikey'] = ENV['OMDB_API_KEY']
       req.params['s'] = params[:movie]
     end
-
-    body_hash = JSON.parse(@resp.body)
-    @movies = body_hash['search']
+    body = JSON.parse(@resp.body)
+    if @resp.success?
+      @movies = body["Search"]
+    else
+      @error = "There was a timeout. Please try again."
+    end
     render 'index'
   end
 

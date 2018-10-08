@@ -9,6 +9,18 @@
   </div>
 </div>
 
-<div>
-  <%= @movies if @movies %>
+
+<div class="card-deck text-center" id="card-deck"> 
+  <% if @movies %>
+  <% @movies.each do |m| %>
+      <div class="card">
+        <img src="<%= m["Title"] %>" alt="No poster found." class="card-img-top">
+
+        <div class="card-body">
+          <h5 class="card-title"><%= m["Title"] %></h5>
+          <p class="card-text"><%= m["Year"] %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
