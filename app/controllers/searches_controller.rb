@@ -19,4 +19,8 @@ class SearchesController < ApplicationController
     render 'index'
   end
 
+  def add
+
+  end
+
 end
