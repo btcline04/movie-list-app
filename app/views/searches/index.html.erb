@@ -1,9 +1,14 @@
-<%= form_tag '/search' do %>
-  <%= label_tag :movie %>
-  <%= text_field_tag :movie %>
-  <%= submit_tag "Search Movies" %>
-<% end %>
+<div class="container-fluid col-md-4 col-md-4-offset">
+  <div class="form-inline">
+    <div class="form-group">
+      <%= form_tag '/search' do %>
+        <%= text_field_tag :movie %>
+        <%= submit_tag "Search Movies", class: 'btn btn-space btn-sm btn-primary' %>
+      <% end %> 
+    </div>
+  </div>
+</div>
 
 <div>
-  <%= @conn.body if @conn %>
+  <%= @movies if @movies %>
 </div>
