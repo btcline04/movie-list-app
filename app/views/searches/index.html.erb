@@ -1,0 +1,9 @@
+<%= form_tag '/search' do %>
+  <%= label_tag :movie %>
+  <%= text_field_tag :movie %>
+  <%= submit_tag "Search Movies" %>
+<% end %>
+
+<div>
+  <%= @conn.body if @conn %>
+</div>
