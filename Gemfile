@@ -11,6 +11,7 @@ gem 'figaro'
 gem 'httparty'
 gem 'awesome_print'
 gem 'faraday'
+gem 'jquery-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'

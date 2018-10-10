@@ -23,9 +23,7 @@
 
         <div class="card-footer">
           <div class="btn-top">
-            <span class="btn-group">
-              <button class="btn btn-primary btn-sm add-movie", 'data-movie-id': m['imdbID'] type="button" data-toggle="modal" data-target="#movielistmodal">Add Movie To List</button>
-            </span>
+            <button class="btn btn-primary btn-sm add-movie" data-movie-id="m['imdbID']" type="button" data-toggle="modal" data-target="#movielistmodal">Add Movie To List</button>
           </div>
         </div>
       </div>
@@ -44,7 +42,7 @@
       </div>
       <div class="modal-body">
         <%= form_for @movie, method: :post, url: 'add_api_movie_to_list' do |f| %>
-          <%= hidden_field_tag :movie_id, { id: "movie-id" } %>
+          <%= hidden_field_tag :movie_id, nil, { id: "movie-id" } %>
           <% @list.each do |list| %>
             <%= f.label :name, list.name %>
             <%= f.radio_button :list_ids, list.id %>
@@ -58,3 +56,11 @@
     </div>
   </div>
 </div>
+
+<script>
+  $('.add-movie').click(function(e){
+    e.preventDefault();
+    $('#movie-id').val($(this).data('movie-id'));
+    $('#movielistmodal').modal('show');
+  });
+</script>

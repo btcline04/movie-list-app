@@ -23,6 +23,4 @@ class SearchesController < ApplicationController
     end
     render 'index'
   end
-
-
 end
