@@ -18,6 +18,10 @@ class MoviesController < ApplicationController
     end
   end
 
+  def add_api_movie_to_list
+    
+  end
+
   def show
   end
 

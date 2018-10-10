@@ -1,9 +1,13 @@
 class SearchesController < ApplicationController
 
   def index
+    @list = List.all.select(:id, :name)
+    @movie = Movie.new
   end
 
   def omdb
+    @movie = Movie.new
+    @list = List.all.select(:id, :name)
     conn = Faraday.new(:url => 'http://www.omdbapi.com')
 
     @resp = conn.get do |req|
@@ -19,5 +23,6 @@ class SearchesController < ApplicationController
     end
     render 'index'
   end
+
 
 end
