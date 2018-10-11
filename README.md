@@ -1,4 +1,4 @@
-# Movie List App Coding Challenge
+# Movie List App
 
 ## Introduction
 
