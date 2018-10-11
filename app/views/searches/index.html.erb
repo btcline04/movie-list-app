@@ -49,11 +49,8 @@
           <% end %>
           <%= f.label :rating %>
           <%= f.number_field :rating, min: 0, max: 5 %>
-          <%= f.submit class: 'btn btn-primary btn-space btn-sm' %>
+          <%= f.submit "Add Movie", class: 'btn btn-primary btn-space btn-sm' %>
         <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
