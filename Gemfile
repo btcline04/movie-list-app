@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.1'
+ruby '2.5.0'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'simple_form'
@@ -11,7 +11,7 @@ gem 'figaro'
 gem 'httparty'
 gem 'awesome_print'
 gem 'faraday'
-gem 'jquery-rails'
+gem 'railties'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'

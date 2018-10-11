@@ -241,6 +241,7 @@ DEPENDENCIES
   pry-rails (~> 0.3.4)
   puma (~> 3.11)
   rails (~> 5.2.1)
+  railties
   sass-rails (~> 5.0)
   selenium-webdriver
   simple_form
@@ -252,7 +253,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.0
+   1.16.2
