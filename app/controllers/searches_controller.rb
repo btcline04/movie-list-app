@@ -8,6 +8,7 @@ class SearchesController < ApplicationController
   def omdb
     @movie = Movie.new
     @list = List.all.select(:id, :name)
+    
     conn = Faraday.new(:url => 'http://www.omdbapi.com')
 
     @resp = conn.get do |req|
