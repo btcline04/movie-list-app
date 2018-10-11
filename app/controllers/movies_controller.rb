@@ -19,7 +19,6 @@ class MoviesController < ApplicationController
   end
 
   def add_api_movie_to_list
-    binding.pry
     conn = Faraday.new(:url => 'http://www.omdbapi.com')
 
     @resp = conn.get do |req|
