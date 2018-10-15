@@ -19,13 +19,16 @@ class MoviesController < ApplicationController
   end
 
   def add_api_movie_to_list
+    #use Faraday to connect to API
     conn = Faraday.new(:url => 'http://www.omdbapi.com')
 
+    #call API using apikey and use movie_id from params to search API
     @resp = conn.get do |req|
       req.params['apikey'] = ENV['OMDB_API_KEY']
       req.params['i'] = params[:movie_id]
     end
 
+    #create new Movie instance using info returned from API call
     body = JSON.parse(@resp.body)
     movie_params = { title: body["Title"], genre: body["Genre"], year: body["Year"], poster: body["Poster"], plot: body["Plot"], director: body["Director"], list_ids: params[:movie][:list_ids], rating: params[:movie][:rating] }
     @movie = Movie.new(movie_params)
