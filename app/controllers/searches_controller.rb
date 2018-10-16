@@ -1,7 +1,6 @@
 class SearchesController < ApplicationController
 
   def index
-    @list = List.all.select(:id, :name)
     @movie = Movie.new
   end
 
@@ -27,4 +26,5 @@ class SearchesController < ApplicationController
     end
     render 'index'
   end
+  
 end

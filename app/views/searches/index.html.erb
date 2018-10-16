@@ -43,10 +43,7 @@
       <div class="modal-body">
         <%= form_for @movie, method: :post, url: 'add_api_movie_to_list' do |f| %>
           <%= hidden_field_tag :movie_id, nil, { id: "movie-id" } %>
-          <% @list.each do |list| %>
-            <%= f.label :name, list.name %>
-            <%= f.radio_button :list_ids, list.id %>
-          <% end %>
+          <%= f.collection_check_boxes :list_ids, List.all, :id, :name %>
           <%= f.label :rating %>
           <%= f.number_field :rating, min: 0, max: 5 %>
           <%= f.submit "Add Movie", class: 'btn btn-primary btn-space btn-sm' %>
